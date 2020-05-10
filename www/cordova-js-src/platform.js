@@ -1,4 +1,3 @@
-cordova.define("cordova-plugin-file.fileSystems-roots", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,29 +19,28 @@ cordova.define("cordova-plugin-file.fileSystems-roots", function(require, export
  *
 */
 
-// Map of fsName -> FileSystem.
-var fsMap = null;
-var FileSystem = require('./FileSystem');
-var exec = require('cordova/exec');
+module.exports = {
+    id: 'browser',
+    cordovaVersion: '4.2.0', // cordova-js
 
-// Overridden by Android, BlackBerry 10 and iOS to populate fsMap.
-require('./fileSystems').getFs = function(name, callback) {
-    function success(response) {
-        fsMap = {};
-        for (var i = 0; i < response.length; ++i) {
-            var fsRoot = response[i];
-            var fs = new FileSystem(fsRoot.filesystemName, fsRoot);
-            fsMap[fs.name] = fs;
-        }
-        callback(fsMap[name]);
-    }
+    bootstrap: function() {
 
-    if (fsMap) {
-        callback(fsMap[name]);
-    } else {
-        exec(success, null, "File", "requestAllFileSystems", []);
+        var modulemapper = require('cordova/modulemapper');
+        var channel = require('cordova/channel');
+
+        modulemapper.clobbers('cordova/exec/proxy', 'cordova.commandProxy');
+
+        channel.onNativeReady.fire();
+
+        document.addEventListener("visibilitychange", function(){
+            if(document.hidden) {
+                channel.onPause.fire();
+            }
+            else {
+                channel.onResume.fire();
+            }
+        });
+
+    // End of bootstrap
     }
 };
-
-
-});

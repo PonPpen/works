@@ -1,5 +1,4 @@
-cordova.define("code-push.AcquisitionManager", function(require, exports, module) {
-/// <reference path="../definitions/harness.d.ts" />
+cordova.define("code-push.AcquisitionManager", function(require, exports, module) { /// <reference path="../definitions/harness.d.ts" />
 var AcquisitionStatus = (function () {
     function AcquisitionStatus() {
     }

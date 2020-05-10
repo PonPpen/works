@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-code-push.sdk", function(require, exports, module) {
-
+cordova.define("cordova-plugin-code-push.sdk", function(require, exports, module) { 
  /******************************************************************************************** 
  	 THIS FILE HAS BEEN COMPILED FROM TYPESCRIPT SOURCES. 
  	 PLEASE DO NOT MODIFY THIS FILE DIRECTLY AS YOU WILL LOSE YOUR CHANGES WHEN RECOMPILING. 

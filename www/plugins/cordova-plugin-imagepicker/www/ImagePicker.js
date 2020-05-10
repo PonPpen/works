@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-imagepicker.ImagePicker", function(require, exports, module) {
-/**
+cordova.define("cordova-plugin-imagepicker.ImagePicker", function(require, exports, module) { /**
  * Created by zhongpeng on 2017/5/31.
  */
 var exec = require('cordova/exec');

@@ -1,5 +1,4 @@
-cordova.define("cordova-open-native-settings.Settings", function(require, exports, module) {
-var NativeSettings = function() {
+cordova.define("cordova-open-native-settings.Settings", function(require, exports, module) { var NativeSettings = function() {
 };
 
 NativeSettings.open = function(setting, onsucess, onfail) {
